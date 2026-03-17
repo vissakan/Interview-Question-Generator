@@ -1,107 +1,129 @@
-# InterviewForge — AI Interview Question Generator
+# Interview Question Generator
 
-Generate 45 tailored interview questions from a resume and job role using Groq (Llama 3.3 70B). Questions are categorised by difficulty (Easy / Medium / Hard) and type (Technical / Behavioural / Situational), and exported as a `.txt` file.
+A web application that generates tailored interview questions based on a candidate's resume and the job role they are applying for. The application uses the Llama 3.3 70B language model via the Groq API to produce relevant, personalised questions and exports them as a downloadable text file.
 
----
 
-## Setup
+## What It Does
 
-### 1. Clone / download the project
+The application accepts a resume file, a job role, years of experience, an optional job description, and any additional notes. It analyses the resume content alongside the job details and generates 45 interview questions organised by difficulty and type.
 
-```bash
-cd interview-gen
-```
+Difficulty levels: Easy, Medium, Hard
 
-### 2. Create a virtual environment
+Question types: Technical, Behavioural, Situational
 
-```bash
-python -m venv venv
-source venv/bin/activate        # Mac/Linux
-venv\Scripts\activate           # Windows
-```
+The output is a structured text file containing 5 questions for each combination of difficulty and type, making a total of 45 questions per generation.
 
-### 3. Install dependencies
 
-```bash
-pip install -r requirements.txt
-```
+## Sample Output
 
-### 4. Add your Groq API key
+    INTERVIEW QUESTION BANK
+    Job Role    : Backend Engineer
+    Experience  : 0 year(s)
+    Generated   : 2026-03-17 21:33:13
 
-- Go to https://console.groq.com and sign up (free)
-- Create an API key
-- Open `.env` and replace the placeholder:
+    DIFFICULTY: EASY
 
-```
-GROQ_API_KEY=your_actual_key_here
-```
+    TECHNICAL
+    1. Can you explain the difference between monolithic and microservice architecture?
+    2. How do you use Docker for containerization in a backend environment?
+    ...
 
-### 5. Run the app
+    BEHAVIOURAL
+    1. Can you tell me about a project you are particularly proud of?
+    ...
 
-```bash
-python app.py
-```
+    SITUATIONAL
+    1. If you were tasked with deploying a new backend application, what steps would you take?
+    ...
 
-Open your browser at **http://localhost:5000**
+    DIFFICULTY: MEDIUM
+    ...
 
----
+    DIFFICULTY: HARD
+    ...
+
+
+## Tech Stack
+
+- Python 3.11
+- Flask (web framework)
+- Groq API with Llama 3.3 70B (question generation)
+- pdfplumber (PDF parsing)
+- python-docx (DOCX parsing)
+
+
+## Supported Resume Formats
+
+- PDF
+- DOCX
+- TXT
+
+Maximum file size: 5MB
+
+
+## Prerequisites
+
+- Python 3.9 or higher
+- A free Groq API key from console.groq.com
+- Conda or any Python virtual environment manager
+
+
+## Setup and Installation
+
+Clone the repository:
+
+    git clone https://github.com/your-username/interview-gen.git
+    cd interview-gen
+
+Create and activate a conda environment:
+
+    conda create -n interview-gen python=3.11
+    conda activate interview-gen
+
+Install dependencies:
+
+    pip install -r requirements.txt
+
+Create a .env file in the project root and add your Groq API key:
+
+    GROQ_API_KEY=your_groq_api_key_here
+
+Run the application:
+
+    python app.py
+
+Open your browser and go to http://localhost:5000
+
 
 ## Project Structure
 
-```
-interview-gen/
-├── app.py                  # Flask routes
-├── utils/
-│   ├── resume_parser.py    # PDF / DOCX / TXT text extraction
-│   ├── prompt_builder.py   # Constructs the LLM prompt
-│   ├── groq_client.py      # Groq API call (Llama 3.3 70B)
-│   └── formatter.py        # Formats output into clean .txt
-├── templates/
-│   └── index.html          # Frontend UI
-├── outputs/                # Temporary generated files
-├── .env                    # API key (never commit this)
-├── requirements.txt
-└── .gitignore
-```
+    interview-gen/
+    |-- app.py                  Entry point, Flask routes
+    |-- utils/
+    |   |-- resume_parser.py    Extracts text from resume files
+    |   |-- prompt_builder.py   Builds the prompt sent to the LLM
+    |   |-- groq_client.py      Handles Groq API communication
+    |   |-- formatter.py        Formats the output into a text file
+    |-- templates/
+    |   |-- index.html          Frontend UI
+    |-- outputs/                Stores generated text files temporarily
+    |-- .env                    API key configuration (not committed)
+    |-- .env.example            Example environment file
+    |-- requirements.txt        Python dependencies
+    |-- .gitignore
 
----
 
-## Output Format
+## Environment Variables
 
-```
-================================================================================
-                     INTERVIEW QUESTION BANK
-================================================================================
-  Job Role    : Backend Engineer
-  Experience  : 2 year(s)
-  Generated   : 2025-01-15 14:32:00
-================================================================================
+The application requires one environment variable:
 
-================================================================
-  ▸ DIFFICULTY: EASY
-================================================================
+    GROQ_API_KEY    Your API key from console.groq.com
 
-  ── TECHNICAL ──
-  1. ...
-  2. ...
-  ...
+Never commit your .env file. Use .env.example as a reference template.
 
-  ── BEHAVIOURAL ──
-  ...
-
-  ── SITUATIONAL ──
-  ...
-
-================================================================
-  ▸ DIFFICULTY: MEDIUM
-================================================================
-  ...
-```
-
----
 
 ## Notes
 
-- Supported resume formats: **PDF, DOCX, TXT** (max 5MB)
-- Groq free tier is sufficient for this project
-- The `outputs/` folder stores generated files temporarily — you can clear it anytime
+- The Groq free tier is sufficient to run this application
+- The outputs folder stores generated files temporarily and is excluded from version control
+- Questions are tailored based on both the resume content and the job details provided, so more detailed inputs produce more relevant questions
