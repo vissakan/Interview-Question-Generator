@@ -1,0 +1,105 @@
+
+================================================================================
+                     INTERVIEW QUESTION BANK
+================================================================================
+  Job Role    : backend engineer
+  Experience  : 0 year(s)
+  Generated   : 2026-03-17 21:33:13
+================================================================================
+
+This document contains 45 tailored interview questions organised by:
+  Difficulty  → Easy | Medium | Hard
+  Type        → Technical | Behavioural | Situational
+
+--------------------------------------------------------------------------------
+
+
+================================================================
+  ▸ DIFFICULTY: EASY
+================================================================
+
+  ── TECHNICAL ──
+
+  1. Can you explain the difference between monolithic and microservice architecture, and how you applied this knowledge in your AWS Cloud Deployment project?
+  2. How do you use Docker for containerization, and what benefits does it provide in a backend development environment?
+  3. What is your experience with Git, and how do you handle version control in a collaborative project?
+  4. Can you describe the process of designing a RESTful API, and how you implemented it in your Food Ordering E-Commerce Platform project?
+  5. How do you approach debugging issues in a Java-based backend application, and what tools do you use for troubleshooting?
+
+  ── BEHAVIOURAL ──
+
+  1. Can you tell me about a project you worked on that you're particularly proud of, and what your role was in its development?
+  2. How do you handle feedback or criticism on your code, and can you give an example of a time when you received constructive feedback?
+  3. Can you describe your experience working in a team environment, and how you contribute to collaborative projects?
+  4. How do you prioritize your tasks and manage your time when working on a project with multiple deadlines?
+  5. Can you tell me about a technical challenge you faced in one of your projects, and how you overcame it?
+
+  ── SITUATIONAL ──
+
+  1. If you were tasked with deploying a new backend application, what steps would you take to ensure a smooth rollout?
+  2. How would you handle a situation where a team member is struggling to complete their tasks, and how would you offer support?
+  3. If you encountered a bug in a legacy codebase, what steps would you take to identify and fix the issue?
+  4. Can you describe a situation where you had to communicate technical information to a non-technical team member, and how you approached the conversation?
+  5. If you were given a new project with a tight deadline, what would you do to ensure that you meet the deadline and deliver a high-quality result?
+
+
+================================================================
+  ▸ DIFFICULTY: MEDIUM
+================================================================
+
+  ── TECHNICAL ──
+
+  1. Can you explain the concept of dependency injection in Spring Boot, and how you used it in your Food Ordering E-Commerce Platform project?
+  2. How do you approach security in a backend application, and what measures do you take to protect against common web attacks?
+  3. Can you describe the process of optimizing the performance of a Java-based backend application, and what tools you use to monitor and analyze performance?
+  4. How do you handle errors and exceptions in a backend application, and what strategies do you use to ensure robust error handling?
+  5. Can you explain the concept of containerization using Docker, and how you used it to deploy your Adaptive DDoS Mitigation Using Deep Reinforcement Learning project?
+
+  ── BEHAVIOURAL ──
+
+  1. Can you tell me about a time when you had to adapt to a new technology or framework, and how you approached the learning process?
+  2. How do you handle conflicts or disagreements with team members, and can you give an example of a time when you resolved a conflict?
+  3. Can you describe your experience with agile development methodologies, and how you contribute to sprint planning and retrospectives?
+  4. How do you approach knowledge sharing and mentoring junior team members, and can you give an example of a time when you mentored someone?
+  5. Can you tell me about a project where you had to work with a difficult stakeholder or customer, and how you managed the relationship?
+
+  ── SITUATIONAL ──
+
+  1. If you were tasked with integrating a new third-party API into an existing backend application, what steps would you take to ensure a smooth integration?
+  2. How would you handle a situation where a team member is leaving the company, and how would you ensure a smooth transition of their responsibilities?
+  3. Can you describe a situation where you had to make a technical decision with limited information, and how you approached the decision-making process?
+  4. If you were given a project with a complex technical requirement, what would you do to ensure that you meet the requirement and deliver a high-quality result?
+  5. If you encountered a situation where a backend application is experiencing high latency, what steps would you take to identify and fix the issue?
+
+
+================================================================
+  ▸ DIFFICULTY: HARD
+================================================================
+
+  ── TECHNICAL ──
+
+  1. Can you explain the concept of reinforcement learning, and how you applied it in your Adaptive DDoS Mitigation Using Deep Reinforcement Learning project?
+  2. How do you approach the design of a scalable backend architecture, and what considerations do you take into account when designing for high traffic?
+  3. Can you describe the process of implementing a service discovery mechanism in a microservice architecture, and what tools you would use to implement it?
+  4. How do you handle the trade-offs between consistency, availability, and partition tolerance in a distributed backend system?
+  5. Can you explain the concept of chaos engineering, and how you would apply it to a backend application to ensure resilience and fault tolerance?
+
+  ── BEHAVIOURAL ──
+
+  1. Can you tell me about a time when you had to navigate a complex organizational structure to get something done, and how you approached the situation?
+  2. How do you handle a situation where you're under pressure to meet a deadline, and how do you manage your stress levels?
+  3. Can you describe your experience with leading a team or mentoring junior team members, and how you approach leadership and mentorship?
+  4. How do you approach decision-making in a situation where there are conflicting priorities and limited resources?
+  5. Can you tell me about a project where you had to communicate complex technical information to a non-technical stakeholder, and how you approached the communication?
+
+  ── SITUATIONAL ──
+
+  1. If you were tasked with designing a backend architecture for a highly regulated industry, what considerations would you take into account to ensure compliance with regulatory requirements?
+  2. How would you handle a situation where a backend application is experiencing a major outage, and how would you coordinate the response and recovery efforts?
+  3. Can you describe a situation where you had to make a technical decision with significant business implications, and how you approached the decision-making process?
+  4. If you were given a project with a highly uncertain or ambiguous requirement, what would you do to clarify the requirement and deliver a high-quality result?
+  5. If you encountered a situation where a team member is struggling to keep up with the technical demands of a project, what would you do to support them and ensure the project's success?
+
+--------------------------------------------------------------------------------
+                         END OF QUESTION BANK
+================================================================================

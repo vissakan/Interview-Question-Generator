@@ -16,6 +16,9 @@ The output is a structured text file containing 5 questions for each combination
 
 ## Sample Output
 
+A full example of the generated output is available in the repo as interview_questions.txt.
+
+
     INTERVIEW QUESTION BANK
     Job Role    : Backend Engineer
     Experience  : 0 year(s)
@@ -106,7 +109,7 @@ Open your browser and go to http://localhost:5000
     |   |-- formatter.py        Formats the output into a text file
     |-- templates/
     |   |-- index.html          Frontend UI
-    |-- outputs/                Stores generated text files temporarily
+    
     |-- .env                    API key configuration (not committed)
     |-- .env.example            Example environment file
     |-- requirements.txt        Python dependencies
@@ -125,5 +128,5 @@ Never commit your .env file. Use .env.example as a reference template.
 ## Notes
 
 - The Groq free tier is sufficient to run this application
-- The outputs folder stores generated files temporarily and is excluded from version control
+
 - Questions are tailored based on both the resume content and the job details provided, so more detailed inputs produce more relevant questions
