@@ -1,6 +1,7 @@
 import os
 import uuid
 import io
+import json
 import traceback
 from flask import Flask, request, render_template, send_file, jsonify
 from dotenv import load_dotenv
@@ -10,7 +11,7 @@ load_dotenv()
 from utils.resume_parser import extract_text
 from utils.prompt_builder import build_prompt
 from utils.groq_client import generate_questions
-from utils.formatter import format_output
+from utils.formatter import format_output, format_output_json
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # 5MB limit
@@ -59,6 +60,24 @@ def generate():
         app.logger.info("Calling Groq API...")
         raw_output = generate_questions(prompt)
         app.logger.info("Groq API responded successfully.")
+        # Get requested output format (default: txt)
+        output_format = request.form.get('format', 'txt').strip().lower()
+        unique_id = uuid.uuid4().hex[:8]
+
+        if output_format == 'json':
+            data = format_output_json(raw_output, job_role, experience)
+            buffer = io.BytesIO()
+            buffer.write(json.dumps(data, indent=2).encode('utf-8'))
+            buffer.seek(0)
+            output_filename = f"interview_questions_{unique_id}.json"
+            return send_file(
+                buffer,
+                as_attachment=True,
+                download_name=output_filename,
+                mimetype='application/json'
+            )
+
+        # Default: existing .txt path — unchanged
 
         # Format output
         formatted = format_output(raw_output, job_role, experience)

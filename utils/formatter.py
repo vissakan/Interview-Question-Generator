@@ -101,3 +101,38 @@ def _render_sections(sections: dict) -> str:
         output.append("")
 
     return "\n".join(output)
+
+def format_output_json(raw_text: str, job_role: str, experience: str) -> dict:
+    """Format the LLM output as a structured Python dict for JSON export."""
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    exp_display = f"{experience} year(s)" if experience else "Not specified"
+
+    # Reuse existing parsing logic
+    sections = _parse_sections(raw_text)
+
+    def get_questions(difficulty: str, q_type: str) -> list:
+        key = f"[{difficulty.upper()} - {q_type.upper()}]"
+        return sections.get(key, [])
+
+    return {
+        "job_role": job_role,
+        "experience": exp_display,
+        "generated_at": now,
+        "questions": {
+            "easy": {
+                "technical":   get_questions("easy", "technical"),
+                "behavioural": get_questions("easy", "behavioural"),
+                "situational": get_questions("easy", "situational"),
+            },
+            "medium": {
+                "technical":   get_questions("medium", "technical"),
+                "behavioural": get_questions("medium", "behavioural"),
+                "situational": get_questions("medium", "situational"),
+            },
+            "hard": {
+                "technical":   get_questions("hard", "technical"),
+                "behavioural": get_questions("hard", "behavioural"),
+                "situational": get_questions("hard", "situational"),
+            },
+        }
+    }

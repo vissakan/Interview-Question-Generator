@@ -319,6 +319,22 @@
       .how-it-works { grid-template-columns: 1fr; }
       .card { padding: 24px; }
     }
+    /* ── Format selector ── */
+    .format-options { display: flex; gap: 12px; }
+    .format-option { flex: 1; cursor: pointer; margin: 0; }
+    .format-option input[type="radio"] { display: none; }
+    .format-box {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      padding: 16px 12px; border: 1px solid var(--border);
+      border-radius: var(--radius); background: rgba(255,255,255,0.02);
+      transition: border-color 0.2s, background 0.2s; text-align: center;
+    }
+    .format-option input[type="radio"]:checked + .format-box {
+      border-color: var(--accent); background: rgba(232,255,74,0.05);
+    }
+    .format-icon { font-size: 20px; font-family: 'DM Mono', monospace; color: var(--accent); }
+    .format-name { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; color: var(--text); }
+    .format-desc { font-size: 11px; color: var(--muted); }
   </style>
 </head>
 <body>
@@ -366,6 +382,29 @@
         <div class="field-group">
           <label for="extraNotes">Additional Notes <span style="color:var(--muted);font-weight:400">(optional)</span></label>
           <input type="text" id="extraNotes" name="extra_notes" placeholder="e.g. focus on system design, candidate is switching domains…" />
+        </div>
+
+        <p class="section-label">03 — Output Format</p>
+        <div class="field-group">
+          <label>Download As</label>
+          <div class="format-options">
+            <label class="format-option">
+              <input type="radio" name="format" value="txt" checked />
+              <span class="format-box">
+                <span class="format-icon">📄</span>
+                <span class="format-name">.TXT</span>
+                <span class="format-desc">Plain text file</span>
+              </span>
+            </label>
+            <label class="format-option">
+              <input type="radio" name="format" value="json" />
+              <span class="format-box">
+                <span class="format-icon">{ }</span>
+                <span class="format-name">.JSON</span>
+                <span class="format-desc">Structured data</span>
+              </span>
+            </label>
+          </div>
         </div>
 
         <hr class="divider" />
@@ -449,7 +488,8 @@
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
-          a.download = 'interview_questions.txt';
+          const fmt = form.querySelector('input[name="format"]:checked').value;
+          a.download = 'interview_questions.' + fmt;
           a.click();
           URL.revokeObjectURL(url);
 
